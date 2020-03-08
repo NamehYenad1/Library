@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/Library.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+
+
+
+
+
+
+
+
+
+<body class="grey lighten-3 " id="body">
+
+    <div class=" hidden" id="login-div">
+        <div class="row">
+            <div class="logoWrapper">
+                <img class='logo' src="/Img/book-24px.svg">
+            </div>
+
+        </div>
+        <div class='row center-align'>
+            <h5>Sign In</h5>
+            <h6>User your Library account or sign up for one</h6>
+
+        </div>
+
+        <div class="row ">
+            <div class='input-field col s12'>
+                <input id='email_input' type="email" class='validate'>
+                <label for='email_input'>Email</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class='input-field col s12'>
+                <input id='password_input' type="password" class='validate'>
+                <label for='password_input'>Password</label>
+                <div>
+                    <a href="#"> <b> Forgot Password?</b></a>
+                </div>
+            </div>
+            <div class="row"></div>
+            <div class="row">
+
+
+                <button id="LoginButton" class="btn waves-effect waves-light z-depth-0  ">Log In</button>
+
+            </div>
+
+            <div class="row">
+                <button id="SignUpButton" class="btn waves-effect waves-light z-depth-0">Sign Up</button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="mainContent">
+        <nav class="z-depth-0 grey lighten-4">
+            <div class="nav-wrapper container">
+
+                <a href="#" class="brand-logo">
+                    <img src="Img/book-24px.svg" style="width: 50px; margin-top: 10px;">
+                    <span style=" color: black; position: absolute; display: inline-block;  font-size: 2.1rem; padding: 0; font-family:Roboto !important; "> Library </span>
+                </a>
+
+
+
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="logged-in">
+                        <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+                    </li>
+                    <li class="logged-in">
+                        <a href="#" class="grey-text" id="logout">Logout</a>
+                    </li>
+                    <li class="logged-in">
+                        <a href="#" class="grey-text modal-trigger" data-target="modal-create">Add Book</a>
+                    </li>
+                    <!-- <li class="logged-out">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                </li> -->
+
+                </ul>
+            </div>
+        </nav>
+
+        <!---
+
+   //sign up
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+            <h4>Sign up</h4><br />
+            <form id="signup-form">
+                <div class="input-field">
+                    <input type="email" id="signup-email" required />
+                    <label for="signup-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="signup-password" required />
+                    <label for="signup-password">Choose password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+            </form>
+        </div>
+    </div>
+
+   //log in 
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4>Login</h4><br />
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Your password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Login</button>
+            </form>
+        </div>
+    </div> -->
+
+
+        <!-- ACCOUNT MODAL -->
+        <div id="modal-account" class="modal">
+            <div class="modal-content center-align">
+                <h4>Account details</h4><br />
+                <div class="account-details"></div>
+                <div class="account-extras"></div>
+            </div>
+        </div>
+
+
+        <!-- CREATE Book MODAL -->
+        <div id="modal-create" class="modal">
+            <div class="modal-content">
+                <h4>Add Book</h4><br />
+                <form id="create-form">
+                    <div class="input-field">
+                        <input type="text" id="title" required>
+                        <label for="title">Book Title</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea id="Author" class="materialize-textarea" required></textarea>
+                        <label for="Author">Author</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="Pages" type="number" min="0" required></textarea>
+                        <label for="Pages">Pages</label>
+                    </div>
+
+                    <p>
+                        <label>
+                          <input type="checkbox" id="Read" class="filled-in" checked="checked" />
+                          <span>Read</span>
+                        </label>
+                    </p>
+
+                    <button class="btn yellow darken-2 z-depth-0">Create</button>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Edit Book MODAL -->
+        <div id="modal-edit" class="modal">
+            <div class="modal-content">
+                <h4>Edit Book</h4><br />
+                <form id="Edit-form">
+                    <div class="input-field">
+                        <input type="text" id="title" required>
+                        <label for="title">Book Title</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea id="content" class="materialize-textarea" required></textarea>
+                        <label for="content">Author</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="Pages" type="number" min="0" required></textarea>
+                        <label for="Pages">Pages</label>
+                    </div>
+                    <p>
+                        <label>
+                              <input type="checkbox" class="filled-in" checked="checked" />
+                              <span>Read</span>
+                            </label>
+                    </p>
+
+                    <button id="Create" class="btn yellow darken-2 z-depth-0">Create</button>
+                    <button id="Delete" class="btn yellow darken-2 z-depth-0">Delete</button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- GUIDE LIST -->
+        <div class="container" style="margin-top: 40px;">
+            <table class="bordered striped centered">
+                <thead>
+                    <tr class="black">
+                        <th class='white-text'>Book Title </th>
+                        <th class='white-text'>Author</th>
+                        <th class='white-text'>Pages</th>
+                        <th class='white-text'>Read</th>
+                        <th class='white-text'>Change</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tbody">
+                    <tr class='grey lighten-4 Trbody'>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAe0ZRtnnDlKa2l9gtGTvgeNUuzvLGrxYQ",
+        authDomain: "library-9be94.firebaseapp.com",
+        databaseURL: "https://library-9be94.firebaseio.com",
+        projectId: "library-9be94",
+        storageBucket: "library-9be94.appspot.com",
+        messagingSenderId: "737158382887",
+        appId: "1:737158382887:web:bda9950c5925c0637b1502",
+        measurementId: "G-GKQ50WESYZ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    //update firestore settings
+    db.settings({
+        timestampsInSnapshots: true
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="scripts/Library.js"></script>
+<script src="scripts/auth.js"></script>
+
+<script>
+</script>
+
+</html>

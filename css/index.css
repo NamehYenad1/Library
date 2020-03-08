@@ -1,0 +1,43 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../Fonts/Roboto/Roboto-Regular.ttf');
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: roboto;
+}
+
+.login-div {
+    max-width: 430px;
+    padding: 35px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#LoginButton {
+    width: 100%;
+}
+
+#SignUpButton {
+    width: 100%;
+}
+
+.logo {
+    background-image: url('../Img/book-24px.svg') no-repeat;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.logoWrapper {
+    width: fit-content;
+    margin: 0 auto;
+}

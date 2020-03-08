@@ -1,0 +1,97 @@
+// setup materialize components
+document.addEventListener('DOMContentLoaded', function() {
+
+    var modals = document.querySelectorAll('.modal');
+    M.Modal.init(modals);
+
+
+
+});
+
+//set up dom
+const TrBody = document.querySelector('Trbody');
+
+function Book(Title, Author, Pages, Read, Owner) {
+    this.Title = Title;
+    this.Author = Author;
+    this.Pages = Pages;
+    if (Read == true) {
+        this.Read = 'Yes';
+    } else if (Read == false) {
+        this.Read = 'No';
+    }
+
+    this.Owner = Owner;
+}
+
+
+const dataBaseItems = function(data) {
+    let ArrayOfBooks = [];
+
+    let html = '';
+
+    data.forEach(doc => {
+        const book = doc.data();
+        console.log(book);
+
+
+
+    })
+}
+
+
+
+
+
+
+
+
+
+
+// setup materialize components
+document.addEventListener('DOMContentLoaded', function() {
+
+    var modals = document.querySelectorAll('.modal');
+    M.Modal.init(modals);
+
+
+
+});
+
+//set up dom
+const TrBody = document.querySelector('Trbody');
+const UID = auth.currentUser.uid;
+console.log(UID);
+
+function Book(Title, Author, Pages, Read, Owner) {
+    this.Title = Title;
+    this.Author = Author;
+    this.Pages = Pages;
+    if (Read == true) {
+        this.Read = 'Yes';
+    } else if (Read == false) {
+        this.Read = 'No';
+    }
+
+    this.Owner = Owner;
+}
+
+
+const dataBaseItems = function(data) {
+    let ArrayOfBooks = [];
+
+    let html = '';
+
+    data.forEach(doc => {
+        const book = doc.data();
+
+        if (book.Owner == UID) {
+            newBook = Book(book.Title, book.Author, book.Pages, book.Read, book.Owner);
+            ArrayOfBooks.push(newBook);
+        }
+        console.log(ArrayOfBooks);
+
+
+
+    })
+}
