@@ -24,6 +24,7 @@ auth.onAuthStateChanged(user => {
             MainContent.classList.remove('hidden');
             LogInScreen.classList.add('hidden');
             body.classList.remove('loginActive');
+            initButtons()
         });
 
 
@@ -73,6 +74,27 @@ CreateForm.addEventListener('submit', (e) => {
     })
 
 });
+
+
+//delete function
+function initButtons() {
+    const deleteButton = document.querySelectorAll('.delete');
+    deleteButton.forEach((button) => {
+        button.addEventListener('click', (e) => {
+
+            db.collection('BookInfo').doc(button.dataset.value).delete().then(function() {
+                console.log("Document successfully deleted!");
+            }).catch(function(error) {
+                console.error("Error removing document: ", error);
+            });
+
+        });
+
+    });
+
+}
+
+
 
 
 
