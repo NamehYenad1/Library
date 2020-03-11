@@ -97,7 +97,8 @@ function initButtons() {
 
 }
 
-
+//Edit Function 
+// initEditButtons is to populate the modal dynamically based on which button the user clicks 
 function initEditButtons() {
     const EditButton = document.querySelectorAll('.edit');
     EditButton.forEach((button) => {
@@ -135,6 +136,41 @@ function initEditButtons() {
     })
 
 }
+
+//Edit FireStore data
+const FinalEdit = document.querySelector('#EditModal');
+FinalEdit.addEventListener('click', (e) => {
+    var TF;
+    if (checkBox.checked == true) {
+        TF = true;
+
+    } else {
+        TF = false;
+    }
+    db.collection('BookInfo').doc(EditContent).set({
+        Author: editAuthor.value,
+        Title: editTitle.value,
+        Owner: auth.currentUser.uid,
+        Pages: editPages.value,
+        Read: TF
+
+
+
+    }).then(() => {
+        //close modal and reset form
+        const modal = document.querySelector('#modal-edit');
+        M.Modal.getInstance(modal).close();
+        FinalEdit.reset();
+    })
+
+
+
+
+
+
+
+
+})
 
 
 
