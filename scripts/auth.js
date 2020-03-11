@@ -5,9 +5,11 @@ email_input = document.querySelector('#email_input');
 password_input = document.querySelector('#password_input');
 //set up dom
 const tbody = document.querySelector('tbody');
-
-
-
+var EditContent = '';
+editTitle = document.querySelector('#EditTitle');
+editAuthor = document.querySelector('#EditAuthor');
+editPages = document.querySelector('#EditPages');
+editCheckBox = document.querySelector('#EditCheckbox');
 //listen for auth status change 
 auth.onAuthStateChanged(user => {
 
@@ -24,7 +26,8 @@ auth.onAuthStateChanged(user => {
             MainContent.classList.remove('hidden');
             LogInScreen.classList.add('hidden');
             body.classList.remove('loginActive');
-            initButtons()
+            initButtons();
+            initEditButtons();
         });
 
 
@@ -91,6 +94,45 @@ function initButtons() {
         });
 
     });
+
+}
+
+
+function initEditButtons() {
+    const EditButton = document.querySelectorAll('.edit');
+    EditButton.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            EditContent = button.dataset.value;
+            db.collection('BookInfo').doc(button.dataset.value).get().then(function(doc) {
+                if (doc.exists) {
+                    editTitle.value = doc.data().Title;
+                    editAuthor.value = doc.data().Author;
+                    editPages.value = doc.data().Pages;
+
+                    if (doc.data().Read == true) {
+                        editCheckBox.checked = true;
+                    } else {
+                        editCheckBox.checked = false;
+                    }
+
+                    var Modalelem = document.querySelector('#modal-edit');
+                    var instance = M.Modal.init(Modalelem);
+                    M.updateTextFields();
+                    instance.open();
+                    console.log("Document data:", doc.data().Author);
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            })
+
+
+
+
+
+        })
+
+    })
 
 }
 

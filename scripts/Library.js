@@ -80,7 +80,7 @@ const dataBaseItems = function(data) {
     
             <td> 
             
-            <button id ="Edit" data-value="${book.UniqueId}" class="edit btn teal lighten-2 z-depth-0 modal-trigger " style ="min-width:80px"data-target="modal-edit">Edit</button>
+            <button id ="Edit" data-value="${book.UniqueId}" class="edit btn teal lighten-2 z-depth-0 modal-trigger " style ="min-width:80px">Edit</button>
             
             <button id ="Delete" data-value="${book.UniqueId}" class="delete btn teal lighten-2 z-depth-0 ">Delete</button>
           </td>
