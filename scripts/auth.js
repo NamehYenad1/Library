@@ -28,6 +28,7 @@ auth.onAuthStateChanged(user => {
             body.classList.remove('loginActive');
             initButtons();
             initEditButtons();
+            setupUI(user);
         });
 
 
@@ -259,3 +260,21 @@ signUpButton.addEventListener('click', (e) => {
     })
 
 })
+
+
+//set up user ui modal 
+const accountDetails = document.querySelector('.account-details');
+
+function setupUI(user) {
+    if (user) {
+        const html = `
+   <div>Logged in as ${user.email}</div>
+     `;
+        accountDetails.innerHTML = html;
+    } else {
+        //hide account info 
+        accountDetails.innerHTML = '';
+
+    }
+
+}
